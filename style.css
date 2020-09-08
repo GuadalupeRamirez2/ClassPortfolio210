@@ -1,0 +1,84 @@
+/*generic selector*/
+
+body {
+    background-color: skyblue;
+    color: black;
+    /*text color*/
+    font-family: sans-serif;
+}
+
+ul {
+    margin: 50;
+    padding: 20;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: cornflowerblue;
+}
+
+/*psuedo selector -   user interacts*/
+a:hover {
+    color: beige;
+}
+
+img {
+    width: 50%;
+}
+
+/*id and class selector*/
+
+#container {
+    min-width: 320px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+/*nested selector*/
+#header ul {
+    display: flex;
+}
+
+#header li {
+    margin-left: 1em;
+}
+
+#header a {
+    font-size: 1.7em;
+}
+
+#portfolio {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1em;
+}
+
+.project {
+    border: 1px solid coral;
+    padding: 1em;
+    background-color: transparent;
+    transition: background-color 2ooms;
+}
+
+.project;
+
+hover {
+    background-color: blueviolet;
+}
+
+.prpject a {
+    font-size: 1.25em;
+}
+
+/*about*/
+#portrait {
+    width: 200px;
+    float: right;
+}
+
+#about p {
+    font-size: 2em;
+}

@@ -23,7 +23,7 @@ function setup() {
 }
 
 function draw() {
-    background('lightblue');
+    background(225, 52, 89);
 
     /* image */
     image(voiceImage, 110, 94);

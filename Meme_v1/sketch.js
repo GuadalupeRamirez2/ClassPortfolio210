@@ -5,20 +5,16 @@ text + images
 */
 
 var voiceImage;
+var hangImage;
 
 function preload() {
     voiceImage = loadImage('voicememe.jpg');
+    hangImage = loadImage('hangup.png');
 }
-
-//var hangImage;
-
-//function preload() {
-    //hangImage = loadImage('hangup.png');
-//}
 
 
 function setup() {
-    var canvas = createCanvas(840, 460);
+    var canvas = createCanvas(840, 560);
     canvas.drawingContext.miterLimit = 2;
 }
 
@@ -29,7 +25,7 @@ function draw() {
     image(voiceImage, 110, 94);
 
     /*hang up button*/
-    //image(hangImage, width / 2, 100);
+    image(hangImage, 176, 337);
 
     textSize(35);
     fill('gold');

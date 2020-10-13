@@ -16,14 +16,15 @@ function preload() {
 
 
 function setup() {
-    createCanvas(840, 560);
+    var canvas = createCanvas(840, 560);
+    canvas.drawingContext.miterLimit = 2;
 }
 
 function draw() {
     background(225, 52, 89);
 
     if (mouseIsPressed) {
-        image(exampleImage, 280, 15, 310, 530);
+        image(exampleImage, 280, 15, 290, 530);
     } 
     else {
         image(voiceImage, 110, 94);

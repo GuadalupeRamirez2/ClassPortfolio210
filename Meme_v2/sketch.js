@@ -25,8 +25,7 @@ function draw() {
 
     if (mouseIsPressed) {
         image(exampleImage, 280, 15, 290, 530);
-    } 
-    else {
+    } else {
         image(voiceImage, 110, 94);
         image(hangImage, 176, 337);
         textSize(35);
@@ -38,4 +37,5 @@ function draw() {
         text('Me:', 35, 100);
     }
 }
+
 

@@ -11,7 +11,7 @@ var exampleImage;
 function preload() {
     voiceImage = loadImage('voicememe.jpg');
     hangImage = loadImage('hangup.png');
-    exampleImage = loadImage('example.png');
+    exampleImage = loadImage('example.PNG');
 }
 
 

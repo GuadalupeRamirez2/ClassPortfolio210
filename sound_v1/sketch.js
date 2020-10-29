@@ -27,69 +27,46 @@ function setup() {
 function draw() {
     background(220);
 
-if(rapSound.isPlaying()) {
-    background('purple');
-}
+    if (rapSound.isPlaying()) {
+        background('purple');
+    }
 
-if (pacmanSound.isPlaying()) {
-    fill('blue');
-    noStroke();
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-}
+    if (pacmanSound.isPlaying()) {
+        fill('blue');
+        noStroke();
+      rect(50, 20,50,50, 10);
+
+    }
     if (pacman2Sound.isPlaying()) {
-    fill('red');
-    noStroke();
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-}
-    if (pacman3Sound.isPlaying()) {
-    fill('pink');
-    noStroke();
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-}
-    if (pacman3Sound.isPlaying()) {
-    fill('cyan');
-    noStroke();
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-}
-    if (pacman3Sound.isPlaying()) {
-    fill('orange');
-    noStroke();
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-    ellipse(random(width), random(height), random(100, 200));
-}
-    //visualize sound time
-    var currentTime = rapSound.currentTime();
-    var duration = rapSound.duration();
-    var timeElapsed = map(currentTime, 0, duration, 0, width);
+        fill('red');
+        noStroke();
     
-    fill('yellow');
-    noStroke();
-    rect(0, height -100, timeElapsed, 100);
-}
+    }
+    if (pacman3Sound.isPlaying()) {
+        fill('pink');
+        noStroke();
+      
+
+        if (pacman4Sound.isPlaying()) {
+            fill('cyan');
+            noStroke();
+         
+
+        }
+        if (pacman5Sound.isPlaying()) {
+            fill('orange');
+            noStroke();
+          
+        }
+        //visualize sound time
+        var currentTime = rapSound.currentTime();
+        var duration = rapSound.duration();
+        var timeElapsed = map(currentTime, 0, duration, 0, width);
+
+        fill('yellow');
+        noStroke();
+    }
+
     function mousePressed() {
         if (rapSound.isPlaying()) {
             rapSound.pause();
@@ -98,21 +75,22 @@ if (pacmanSound.isPlaying()) {
         }
     }
 
-function keyPressed(){
-    if (keyCode == 13) { //enter key
-        pacmanSound.play();
+    function keyPressed() {
+        if (keyCode == 13) { //enter key
+            pacmanSound.play();
+        }
+        if (keyCode == 65) { //a key
+            pacman2Sound.play();
+        }
+        if (keyCode == 66) { //b key
+            pacman3Sound.play();
+        }
+        if (keyCode == 67) { //c key
+            pacman4Sound.play();
+        }
+        if (keyCode == 68) { //d key
+            pacman5Sound.play();
+        }
+
     }
-    if (keyCode == 65) { //a key
-        pacman2Sound.play();
-    }
-    if (keyCode == 66) { //b key
-        pacman3Sound.play();
-    }
-    if (keyCode == 67) { //c key
-        pacman4SoundSound.play();
-    }
-    if (keyCode == 68) { //d key
-        pacman5SoundSound.play();
-    }
-    
 }

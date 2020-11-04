@@ -13,7 +13,6 @@ function preload() {
     rapSound = loadSound('cityrap.mp3');
 }
 
-
 function setup() {
     createCanvas(640, 360);
     pacmanSound.playMode('restart');
@@ -30,39 +29,15 @@ function mousePressed() {
     if (d < 50) {
         rapSound.play();
     }
-    
     ghostButton(100, 200, 50, 50, 10);
-
 }
-
-function draw() {
-    background(currentColor);
-
-    button(40, 220, 50, pacmanSound);
-    button(240, 220, 50, pacman2Sound);
-    button(340, 220, 50, pacman3Sound);
-
-    var x = 100;
-    var y = 200;
-    var w = 50;
-    var h = 50;
-    
-     //detect mouse inside rect
-    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-        fill('blue');
-    } else {
-        fill('red');
-    }
-    rect(x, y, w, h, 10);
-    
-    //click coin
+//click coin
     function button(x, y, s, sound) {
         var d = dist(x, y, mouseX, mouseY);
         //calculate distance
         if (d < s / 2) {
             //inside the button
             fill('yellow');
-
             if (mouseIsPressed && !sound.isPlaying()) {
                 sound.play();
             }
@@ -73,22 +48,10 @@ function draw() {
         ellipse(x, y, s, 50, 10);
     }
 
-    // pacman button
-    fill('yellow');
-    var d = dist(475, 220, mouseX, mouseY);
-    if (d < 50) {
-        fill('blue');
-    }
-    arc(475, 220, 100, 100, 180, PI + TWO_PI, PIE);
-
-}
-
 function ghostButton(x, y, w, h) {
-
     //click the ghost
     if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
         fill('blue');
-
         // change the background color
         colorNumber++;
         if (colorNumber == 3) {
@@ -102,4 +65,32 @@ function ghostButton(x, y, w, h) {
             currentColor = c;
         }
     }
+}
+
+
+function draw() {
+    background(currentColor);
+    button(40, 220, 50, pacmanSound);
+    button(240, 220, 50, pacman2Sound);
+    button(340, 220, 50, pacman3Sound);
+    var x = 100;
+    var y = 200;
+    var w = 50;
+    var h = 50;
+    
+    //detect mouse inside rect
+    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+        fill('blue');
+    } else {
+        fill('red');
+    }
+    rect(x, y, w, h, 10);
+    
+// pacman button
+    fill('yellow');
+    var d = dist(475, 220, mouseX, mouseY);
+    if (d < 50) {
+        fill('blue');
+    }
+    arc(475, 220, 100, 100, 180, PI + TWO_PI, PIE);
 }

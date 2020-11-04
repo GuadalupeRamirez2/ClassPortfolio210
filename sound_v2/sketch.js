@@ -32,21 +32,21 @@ function mousePressed() {
     ghostButton(100, 200, 50, 50, 10);
 }
 //click coin
-    function button(x, y, s, sound) {
-        var d = dist(x, y, mouseX, mouseY);
-        //calculate distance
-        if (d < s / 2) {
-            //inside the button
-            fill('yellow');
-            if (mouseIsPressed && !sound.isPlaying()) {
-                sound.play();
-            }
-        } else {
-            //outside the button
-            fill('gold');
+function button(x, y, s, sound) {
+    var d = dist(x, y, mouseX, mouseY);
+    //calculate distance
+    if (d < s / 2) {
+        //inside the button
+        fill('yellow');
+        if (mouseIsPressed && !sound.isPlaying()) {
+            sound.play();
         }
-        ellipse(x, y, s, 50, 10);
+    } else {
+        //outside the button
+        fill('gold');
     }
+    ellipse(x, y, s, 50, 10);
+}
 
 function ghostButton(x, y, w, h) {
     //click the ghost
@@ -77,7 +77,7 @@ function draw() {
     var y = 200;
     var w = 50;
     var h = 50;
-    
+
     //detect mouse inside rect
     if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
         fill('blue');
@@ -85,12 +85,20 @@ function draw() {
         fill('red');
     }
     rect(x, y, w, h, 10);
-    
-// pacman button
+
+    // pacman button
     fill('yellow');
     var d = dist(475, 220, mouseX, mouseY);
     if (d < 50) {
         fill('blue');
     }
     arc(475, 220, 100, 100, 180, PI + TWO_PI, PIE);
+
+    //visualize sound time
+    var currentTime = rapSound.currentTime();
+    var duration = rapSound.duration();
+    var timeElapsed = map(currentTime, 0, duration, 0, width);
+    fill('lightgreen');
+    noStroke();
+    rect(timeElapsed, 280, 50, 50, 60, 10);
 }

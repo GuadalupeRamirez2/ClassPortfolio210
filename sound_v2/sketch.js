@@ -30,6 +30,9 @@ function mousePressed() {
     if (d < 50) {
         rapSound.play();
     }
+    
+    ghostButton(100, 200, 50, 50, 10);
+
 }
 
 function draw() {
@@ -43,38 +46,15 @@ function draw() {
     var y = 200;
     var w = 50;
     var h = 50;
-    ghostButton(100, 200, 50, 50, 10);
-
-    function ghostButton(x, y, w, h) {
-
-        //detect mouse inside rect
-        if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
-            fill('blue');
-        } else {
-            fill('red');
-        }
-        rect(x, y, w, h, 10);
-        
-        //click the ghost
+    
+     //detect mouse inside rect
     if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
         fill('blue');
-
-        // change the background color
-        colorNumber++;
-        if (colorNumber == 3) {
-            colorNumber = 0;
-        }
-        if (colorNumber == 0) {
-            currentColor = p;
-        } else if (colorNumber == 1) {
-            currentColor = o;
-        } else if (colorNumber == 2) {
-            currentColor = c;
-        }
+    } else {
+        fill('red');
     }
-    }
-
-
+    rect(x, y, w, h, 10);
+    
     //click coin
     function button(x, y, s, sound) {
         var d = dist(x, y, mouseX, mouseY);
@@ -92,6 +72,7 @@ function draw() {
         }
         ellipse(x, y, s, 50, 10);
     }
+
     // pacman button
     fill('yellow');
     var d = dist(475, 220, mouseX, mouseY);
@@ -100,4 +81,25 @@ function draw() {
     }
     arc(475, 220, 100, 100, 180, PI + TWO_PI, PIE);
 
+}
+
+function ghostButton(x, y, w, h) {
+
+    //click the ghost
+    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+        fill('blue');
+
+        // change the background color
+        colorNumber++;
+        if (colorNumber == 3) {
+            colorNumber = 0;
+        }
+        if (colorNumber == 0) {
+            currentColor = p;
+        } else if (colorNumber == 1) {
+            currentColor = o;
+        } else if (colorNumber == 2) {
+            currentColor = c;
+        }
+    }
 }

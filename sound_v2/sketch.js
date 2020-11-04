@@ -31,22 +31,6 @@ function mousePressed() {
         rapSound.play();
     }
 }
-//click the ghost
-if (mouseX > 100 && mouseX < 150 && mouseY > 200 && mouseY < 250) {
-    fill('blue');
-    // change the background color
-    colorNumber++;
-    if (colorNumber == 3) {
-        colorNumber = 0;
-    }
-    if (colorNumber == 0) {
-        currentColor = p;
-    } else if (colorNumber == 1) {
-        currentColor = o;
-    } else if (colorNumber == 2) {
-        currentColor = c;
-    }
-}
 
 function draw() {
     background(currentColor);
@@ -61,16 +45,8 @@ function draw() {
     var h = 50;
     ghostButton(100, 200, 50, 50, 10);
 
-    // pacman button
-    fill('yellow');
-    var d = dist(475, 220, mouseX, mouseY);
-    if (d < 50) {
-        fill('blue');
-    }
-    arc(475, 220, 100, 100, 180, PI + TWO_PI, PIE);
-
-
     function ghostButton(x, y, w, h) {
+
         //detect mouse inside rect
         if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
             fill('blue');
@@ -78,7 +54,26 @@ function draw() {
             fill('red');
         }
         rect(x, y, w, h, 10);
+        
+        //click the ghost
+    if (mouseX > x && mouseX < x + w && mouseY > y && mouseY < y + h) {
+        fill('blue');
+
+        // change the background color
+        colorNumber++;
+        if (colorNumber == 3) {
+            colorNumber = 0;
+        }
+        if (colorNumber == 0) {
+            currentColor = p;
+        } else if (colorNumber == 1) {
+            currentColor = o;
+        } else if (colorNumber == 2) {
+            currentColor = c;
+        }
     }
+    }
+
 
     //click coin
     function button(x, y, s, sound) {
@@ -97,4 +92,12 @@ function draw() {
         }
         ellipse(x, y, s, 50, 10);
     }
+    // pacman button
+    fill('yellow');
+    var d = dist(475, 220, mouseX, mouseY);
+    if (d < 50) {
+        fill('blue');
+    }
+    arc(475, 220, 100, 100, 180, PI + TWO_PI, PIE);
+
 }

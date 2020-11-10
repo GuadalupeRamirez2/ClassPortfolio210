@@ -26,6 +26,8 @@ function draw() {
     // light poles
     for (let a = 30; a < width; a += 140) {
         rect(a + 100, 100, 10, 220); //poles
+        fill('yellow');
+        ellipse(a-36, 90, 35);//lightbowls
         fill('brown');
     }
 

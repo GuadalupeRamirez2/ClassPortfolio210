@@ -5,6 +5,7 @@
 
 function setup() {
     createCanvas(640, 360);
+    pattern();
 }
 
 function mousePressed() {
@@ -14,7 +15,7 @@ function mousePressed() {
 function pattern() {
     background('cyan');
 
-
+    //train landscape
 
     // clouds
     for (let a = 90; a < width; a += 210) {
@@ -24,7 +25,6 @@ function pattern() {
         ellipse(a, 40, 190, 10);
         ellipse(a, 20, 100, 10);
         ellipse(a, 50, 120, 10);
-
     }
 
     // buildings
@@ -43,11 +43,17 @@ function pattern() {
         fill('black');
         rect(a + 100, 100, 10, 220); //poles
         fill('yellow');
-        ellipse(a - 36, 90, 35); //lightbowls
+        ellipse(a - 36, 90, 35); //spotlights
+    }
+
+    //train tracks
+    for (let a = 10; a < width; a += 360) {
+        fill('grey');
+        rect(-1, 300, width, 100);
     }
 
     //train wheels
-    for (let a = -90; a < width; a += 150) {
+    for (let a = -90; a < width; a += 155) {
         noStroke();
         fill('black');
         ellipse(a + 10, 330, 20, 20); //wheels

@@ -1,6 +1,5 @@
 /*
  Generative pattern version 2
-
 */
 
 function setup() {

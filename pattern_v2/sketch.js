@@ -12,7 +12,7 @@ function mousePressed() {
 }
 
 function pattern() {
-    background(20);
+    background(300);
 
     let w = random(30,50);
     let h = w;
@@ -22,9 +22,9 @@ function pattern() {
             
             let r  = random(255);
             let g  = random(255);
-            let b  = random(255);
+            let v  = random(255);
             
-            stroke(r,g,b);
+            stroke(r,g,v+100);
             strokeWeight(8);
             noFill();
             line(a, b, a + w, b, ); //cyan lines

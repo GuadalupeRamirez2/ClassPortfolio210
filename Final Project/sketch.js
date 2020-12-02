@@ -1,10 +1,9 @@
 /*
- pattern version 1
- javascript loops
+ Final Project version 1
 */
 
 function setup() {
-    createCanvas(640, 360);
+    createCanvas(480, 600);
     pattern();
 }
 
@@ -15,10 +14,10 @@ function mousePressed() {
 function pattern() {
     background('cyan');
 
-    //train landscape
+    //Rockefeller Center landscape
 
     // clouds
-    for (let a = 90; a < width; a += 210) {
+    for (let a = 110; a < width; a += 250) {
         noStroke();
         fill('white');
         ellipse(a, 30, 180, 20);
@@ -27,46 +26,33 @@ function pattern() {
         ellipse(a, 50, 120, 10);
     }
 
-    // buildings
-    for (let a = 0; a < width; a += 90) {
-        fill('plum');
-        let y = random(50, 280);
-        rect(a + 100, y, 80, 500);
-        fill('lightblue');
-        rect(a + 50, y - 25, 40, 300);
-        fill('pink')
-        rect(a, y, 60, 250);
-    }
+    //main building
+    fill('grey');
+    rect(160, 100, 150, 900);
 
-    // light poles
-    for (let a = 30; a < width; a += 140) {
-        fill('black');
-        rect(a + 100, 100, 10, 220); //poles
-        fill('yellow');
-        ellipse(a - 36, 90, 35); //spotlights
-    }
+    //left building
+    fill('blue')
+    stroke('red');
+    //quad(0,0,160,320,160,500,0,560);
 
-    //train tracks
-    for (let a = 10; a < width; a += 360) {
-        fill('grey');
-        rect(-1, 300, width, 100);
+    //left buildings
+    for (let i = 0; i < 3; i++) {
+        let w = 160/3;
+        let x = i * w;
+        let toph = 320/3;
+        let topy= i * toph;
+        let bottomh = 60/3;
+        let bottomy = 560-i*bottomh;
+        
+        quad(x,topy, x + w, topy+toph, x + w, bottomy, x, bottomy+bottomh);
     }
-
-    //train wheels
-    for (let a = -90; a < width; a += 155) {
-        noStroke();
-        fill('black');
-        ellipse(a + 10, 330, 20, 20); //wheels
-        ellipse(a + 30, 330, 20, 20); //wheels
-        ellipse(a + 110, 330, 20, 20); //wheels
-        ellipse(a + 130, 330, 20, 20); //wheels
-
-        //train
-        stroke('black');
-        strokeWeight(4);
-        fill('orange');
-        rect(a + 1, 240, 150, 90, 10); //wagons
-        fill('gold');
-        rect(a + 10, 275, 130, 30, 10); //windows
-    }
+    
+    //right buildings
+    for (let i = 0; i < 3; i++) {
+        let w = 160/3;
+        let x = i * w;
+        let toph = 320/3;
+        let topy= i * toph;
+        let bottomh = 60/3;
+        let bottomy = 560-i*bottomh;
 }

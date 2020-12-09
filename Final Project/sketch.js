@@ -5,6 +5,11 @@
 var grassColor = 'lightgreen';
 var sidesColor = '#FAD7A0';
 var treebColor = '#73C6B6';
+var coupleImage;
+
+function preload() {
+      coupleImage = loadImage('couplekissing.png');
+}
 
 function setup() {
     createCanvas(480, 600);
@@ -33,6 +38,9 @@ function draw() {
     }
 
     //Rockefeller Center landscape
+    
+    /*couple kissing*/
+    image(coupleImage,  100, 100);
 
     // clouds
     for (let a = 130; a < width; a += 250) {

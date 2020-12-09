@@ -57,9 +57,6 @@ function draw() {
     let h = 600;
 
     quad(x, y, x + w, y, x + w * 2, y + h, x - w, y + h);
-    
-    /*couple kissing*/
-    image(coupleImage, 165,450, 150, 250);
 
     //grass
     fill(grassColor);
@@ -112,6 +109,10 @@ function draw() {
         ellipse(a + 45 + 15, 450, 100, 100);
         ellipse(a + 25 + 15, 420, 100, 100);
     }
+    
+    
+    /*couple kissing*/
+    image(coupleImage, 165,450, 150, 250);
 
 
 }

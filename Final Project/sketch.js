@@ -2,22 +2,40 @@
  Final Project version 1
 */
 
+var grassColor = 'lightgreen';
+var sidesColor = '#FAD7A0';
+var treebColor = '#73C6B6';
+
 function setup() {
     createCanvas(480, 600);
-    pattern();
+
 }
 
-function mousePressed() {
-    pattern();
-}
+function mousePressed() {}
 
-function pattern() {
+function draw() {
     background('cyan');
+
+    if (mouseIsPressed) {
+        background('#2E4053');
+        grassColor = 'darkgreen';
+        sidesColor = '#D68910';
+        treebColor = '#138D75';
+
+    } else {
+        //sun
+        fill('yellow');
+        ellipse(255, 70, 150, 150);
+        grassColor = 'lightgreen';
+        sidesColor = '#FAD7A0';
+        treebColor = '#73C6B6';
+
+    }
 
     //Rockefeller Center landscape
 
     // clouds
-    for (let a = 120; a < width; a += 250) {
+    for (let a = 130; a < width; a += 250) {
         noStroke();
         fill('white');
         ellipse(a, 30, 180, 20);
@@ -27,14 +45,17 @@ function pattern() {
     }
 
     //main building
-    fill('pink');
-    //rect(180, 100, 150, 900);
-    let x = 200;
+    fill('#D7BDE2');
+    let x = 220;
     let y = 50;
-    let w = 50;
+    let w = 70;
     let h = 600;
-    
-    quad(x,y, x+w,y,x+width+2, y+h, x, y+h);
+
+    quad(x, y, x + w, y, x + w * 2, y + h, x - w, y + h);
+
+    //grass
+    fill(grassColor);
+    rect(0, 529, 640, 70);
 
     //left buildings
     for (let i = 0; i < 3; i++) {
@@ -44,30 +65,30 @@ function pattern() {
         let topy = i * toph;
         let bottomh = 50 / 3;
         let bottomy = 560 - i * bottomh;
-        fill('grey');
+        fill(sidesColor);
         stroke('maroon');
 
         quad(x, topy, x + w, topy + toph, x + w, bottomy, x, bottomy + bottomh);
-        
+
     }
 
     //right buildings
     for (let i = 0; i < 3; i++) {
         let w = 150 / 3;
-        let x =width-i*w - w;
+        let x = width - i * w - w;
         let toph = 320 / 3;
         let topy = i * toph;
         let bottomh = 50 / 3;
         let bottomy = 560 - i * bottomh;
-        fill('grey');
+        fill(sidesColor);
         stroke('maroon');
 
-        quad(x, topy+toph, x + w, topy, x + w, bottomy+bottomh, x, bottomy);
+        quad(x, topy + toph, x + w, topy, x + w, bottomy + bottomh, x, bottomy);
     }
-    
-    //background
-    fill('grey');
-    rect(90,530,330,70,10);
+
+    //tree base
+    fill(treebColor);
+    rect(90, 530, 330, 70, 10);
 
     //tree trunk
     for (let a = 50; a < width; a += 210) {
@@ -77,11 +98,12 @@ function pattern() {
 
     //small trees
     for (let a = 120; a < width; a += 210) {
-        fill('lightgreen');
+        fill(grassColor);
         noStroke();
         ellipse(a + 15, 450, 100, 100);
         ellipse(a + 45 + 15, 450, 100, 100);
         ellipse(a + 25 + 15, 420, 100, 100);
     }
+
 
 }

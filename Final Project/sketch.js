@@ -38,9 +38,6 @@ function draw() {
     }
 
     //Rockefeller Center landscape
-    
-    /*couple kissing*/
-    image(coupleImage,  100, 100);
 
     // clouds
     for (let a = 130; a < width; a += 250) {
@@ -60,6 +57,9 @@ function draw() {
     let h = 600;
 
     quad(x, y, x + w, y, x + w * 2, y + h, x - w, y + h);
+    
+    /*couple kissing*/
+    image(coupleImage, 165,450, 150, 250);
 
     //grass
     fill(grassColor);

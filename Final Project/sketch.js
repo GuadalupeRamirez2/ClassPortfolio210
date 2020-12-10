@@ -6,17 +6,25 @@ var grassColor = 'lightgreen';
 var sidesColor = '#FAD7A0';
 var treebColor = '#73C6B6';
 var coupleImage;
+var romanticSound;
 
 function preload() {
-      coupleImage = loadImage('couplekissing.png');
+    coupleImage = loadImage('couplekissing.png');
+    romanticSound = loadSound('romantic.mp3');
 }
 
 function setup() {
     createCanvas(480, 600);
+    romanticSound.playMode('restart');
 
 }
 
-function mousePressed() {}
+function keyPressed() {
+    if (keyCode == 13) { //enter key
+        romanticSound.play();
+    }
+}
+
 
 function draw() {
     background('cyan');
@@ -30,6 +38,7 @@ function draw() {
     } else {
         //sun
         fill('yellow');
+        stroke('gold');
         ellipse(255, 70, 150, 150);
         grassColor = 'lightgreen';
         sidesColor = '#FAD7A0';
@@ -91,7 +100,7 @@ function draw() {
         quad(x, topy + toph, x + w, topy, x + w, bottomy + bottomh, x, bottomy);
     }
 
-    //tree base
+    //seats
     fill(treebColor);
     rect(90, 530, 330, 70, 10);
 
@@ -109,10 +118,10 @@ function draw() {
         ellipse(a + 45 + 15, 450, 100, 100);
         ellipse(a + 25 + 15, 420, 100, 100);
     }
-    
-    
+
+
     /*couple kissing*/
-    image(coupleImage, 165,450, 150, 250);
+    image(coupleImage, 165, 450, 150, 250);
 
 
 }

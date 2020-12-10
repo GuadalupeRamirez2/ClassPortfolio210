@@ -1,6 +1,4 @@
-/*
- Final Project version 1
-*/
+/*Final Project version 1*/
 
 var grassColor = 'lightgreen';
 var sidesColor = '#FAD7A0';
@@ -17,12 +15,6 @@ function setup() {
     createCanvas(480, 600);
     romanticSound.playMode('restart');
 
-}
-
-function keyPressed() {
-    if (keyCode == 13) { //enter key
-        romanticSound.play();
-    }
 }
 
 
@@ -123,5 +115,11 @@ function draw() {
     /*couple kissing*/
     image(coupleImage, 165, 450, 150, 250);
 
-
+    function mousePressed() {
+        if (romanticSound.isPlaying()) {
+            romanticSound.pause();
+        } else {
+            romanticSound.play();
+        }
+    }
 }
